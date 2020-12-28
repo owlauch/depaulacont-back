@@ -1,5 +1,4 @@
-import { Despesa } from 'src/despesas/despesas.entity';
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class CentroCusto {
   @PrimaryGeneratedColumn()

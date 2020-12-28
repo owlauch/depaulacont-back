@@ -11,20 +11,21 @@ import { ServicosModule } from './servicos/servicos.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'FIREwall1',
-      database: 'dpaulacont',
-      synchronize: true,
+      entities: ['dist/**/*.entity.js'],
+      url:
+        'postgres://rwmoziodfvrlto:4e5b4d14bca5ef68899f2015c71808ff977dcf7460e5669a39f60ecdce0088d7@ec2-54-144-109-253.compute-1.amazonaws.com:5432/d5s2g3ov8dh2ni',
       autoLoadEntities: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      synchronize: true,
     }),
     CentroCustoModule,
     PessoasModule,
     ServicosModule,
     ReceitasModule,
     DespesasModule,
-    RecebiveisModule
+    RecebiveisModule,
   ],
   providers: [],
 })
