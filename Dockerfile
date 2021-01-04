@@ -4,9 +4,10 @@ WORKDIR /usr/app
 COPY package.json ./
 
 RUN npm i
+RUN npm build
 
-COPY . .
+COPY ./dist .
 
 EXPOSE 3000
 
-CMD [ "npm","start" ]
+CMD [ "node","main.js" ]

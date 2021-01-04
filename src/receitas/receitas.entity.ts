@@ -17,16 +17,19 @@ export class Receita {
   fonte: number;
   @Column()
   data_pgto: Date;
-  @Column({type: 'real'})
+  @Column({ type: 'real' })
   valor: string;
   @Column()
   ano: number;
   @Column()
   mes: number;
-  @ManyToOne(() => Pessoas, pessoas=>pessoas.receitas)
+  @Column({ nullable: true, default: false })
+  pago: boolean;
+  @ManyToOne(() => Pessoas, (pessoas) => pessoas.receitas)
   @JoinColumn()
   cliente: Pessoas;
   @ManyToOne(() => Servicos)
   @JoinColumn()
   servico: Servicos;
 }
+                                                  

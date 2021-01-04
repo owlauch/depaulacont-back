@@ -1,5 +1,4 @@
 import { Despesa } from 'src/despesas/despesas.entity';
-import { Recebiveis } from 'src/recebiveis/recebiveis.entity';
 import { Receita } from 'src/receitas/receitas.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToMany } from 'typeorm';
 
@@ -33,11 +32,10 @@ export class Pessoas {
   senha_certificado?: string;
   @Column({ nullable: true })
   senha_nfs?: string;
+  @Column({ nullable: true })
+  cliente_mensal: boolean;
   @OneToMany((type) => Receita, (receita) => receita.cliente)
   @JoinColumn()
   receitas: Receita[];
-  @OneToMany((type) => Recebiveis, (recebiveis) => recebiveis.credor)
-  @JoinColumn()
-  recebiveis: Recebiveis[];
   
 }

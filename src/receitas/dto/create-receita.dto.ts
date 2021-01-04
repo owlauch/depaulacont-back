@@ -17,4 +17,6 @@ export class CreateReceitaDto {
   mes: number;
   @ApiProperty()
   servicoId: number;
+  @ApiProperty()
+  pago: boolean;
 }

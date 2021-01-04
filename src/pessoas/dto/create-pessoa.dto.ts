@@ -22,6 +22,8 @@ export class CreatePessoaDto {
   @ApiProperty()
   cpf?: string;
   @ApiProperty()
+  cliente_mensal: boolean;
+  @ApiProperty()
   senha_simples?: string;
   @ApiProperty()
   senha_certificado?: string;

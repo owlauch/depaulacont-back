@@ -1,0 +1,18 @@
+INSERT INTO servicos (descricao) VALUES('ABERTURA DE EMPRESA'); 
+INSERT INTO servicos (descricao) VALUES('ALTERAÇÃO DE EMPRESA'); 
+INSERT INTO servicos (descricao) VALUES('CONTRATO COMPRA E VENDA'); 
+INSERT INTO servicos (descricao) VALUES('CONTRATO DE ALUGUEL'); 
+INSERT INTO servicos (descricao) VALUES('CONTRATO DE COMPRA E VENDA DE VEICULOS'); 
+INSERT INTO servicos (descricao) VALUES('DECLARAÇÕES'); 
+INSERT INTO servicos (descricao) VALUES('DEFIS'); 
+INSERT INTO servicos (descricao) VALUES('DIRF'); 
+INSERT INTO servicos (descricao) VALUES('FECHAMENTO DE EMPRESA'); 
+INSERT INTO servicos (descricao) VALUES('HONORARIO'); 
+INSERT INTO servicos (descricao) VALUES('IRPF'); 
+INSERT INTO servicos (descricao) VALUES('MEI'); 
+INSERT INTO servicos (descricao) VALUES('ABERTURA MEI'); 
+INSERT INTO servicos (descricao) VALUES('RAIS'); 
+INSERT INTO servicos (descricao) VALUES('ITR');
+INSERT INTO servicos (descricao) VALUES('BALANCO'); 
+INSERT INTO servicos (descricao) VALUES('EMISSÃO DE NOTAS'); 
+INSERT INTO servicos (descricao) VALUES('ACERTO'); 
