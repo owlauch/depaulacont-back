@@ -30,6 +30,23 @@ export class ReceitasService {
     return this.receitaRepository.findOne(id);
   }
 
+  async update(createReceita: CreateReceitaDto): Promise<Receita> {
+    let receita = new Receita();
+    receita.data_pgto = createReceita.data ? createReceita.data : new Date();
+    receita.cliente = createReceita['cliente'].id;
+    receita.servico = createReceita['servico'].id;
+    receita.id = createReceita['id'];
+    receita.ano = createReceita.ano;
+    receita.mes = createReceita.mes;
+    receita.fonte = createReceita.fonte;
+    if (createReceita.valor <= createReceita['valor_quitado']) {
+      receita.pago = true;
+    }
+    receita.valor = createReceita.valor.toString();
+    receita.valor_quitado = createReceita['valor_quitado'].toString();
+    return this.receitaRepository.save(receita);
+  }
+
   async remove(id: string): Promise<void> {
     await this.receitaRepository.delete(id);
   }
@@ -73,6 +90,15 @@ export class ReceitasService {
       .innerJoin('Receita.servico', 'Servicos')
       .where('Pessoas.id = :id', { id: identificao })
       .andWhere('Servicos.id = 10')
+      .getMany();
+    return query;
+  }
+
+  async recebiveis() {
+    let query = await createQueryBuilder('Receita')
+      .leftJoinAndSelect('Receita.cliente', 'Pessoas')
+      .leftJoinAndSelect('Receita.servico', 'Servico')
+      .where('Receita.pago = false')
       .getMany();
     return query;
   }

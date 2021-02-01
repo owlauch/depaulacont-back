@@ -13,9 +13,9 @@ import {
 export class Receita {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ nullable: true })
   fonte: number;
-  @Column()
+  @Column({ nullable: true })
   data_pgto: Date;
   @Column({ type: 'real' })
   valor: string;
@@ -25,6 +25,8 @@ export class Receita {
   mes: number;
   @Column({ nullable: true, default: false })
   pago: boolean;
+  @Column({ nullable: true, type: 'real', default: 0 })
+  valor_quitado: string;
   @ManyToOne(() => Pessoas, (pessoas) => pessoas.receitas)
   @JoinColumn()
   cliente: Pessoas;
@@ -32,4 +34,3 @@ export class Receita {
   @JoinColumn()
   servico: Servicos;
 }
-                                                  

@@ -30,7 +30,13 @@ export class ReceitasController {
     receita.mes = createReceita.mes;
     receita.fonte = createReceita.fonte;
     receita.valor = createReceita.valor.toString();
+    receita.valor_quitado = '0';
     return this.receitaService.create(receita);
+  }
+
+  @Post('/update')
+  async update(@Body() createReceita: CreateReceitaDto): Promise<Receita> {
+    return this.receitaService.update(createReceita);
   }
 
   @Get()
@@ -55,5 +61,10 @@ export class ReceitasController {
   @Get('/honorarios/:identificacao')
   honorarios(@Param('identificacao') identificacao: string) {
     return this.receitaService.honorarios(identificacao);
+  }
+
+  @Get('/recebiveis')
+  recebiveis() {
+    return this.receitaService.recebiveis();
   }
 }
